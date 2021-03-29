@@ -54,12 +54,12 @@ RUN set -ex; \
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
-# Get tagspaces:latest
-RUN wget https://github.com/tagspaces/tagspaces/releases/latest/download/tagspaces-web.zip \
-    && unzip tagspaces-web.zip \
+# Get tagspaces
+RUN wget https://github.com/tagspaces/tagspaces/releases/download/v3.6.1/tagspaces-web-3.6.1.zip \
+    && unzip tagspaces-web-3.6.1.zip \
     && mv web/* /var/www/html \
     && rm -r web \
-    && rm -rf tagspaces-web.zip
+    && rm -rf tagspaces-web-3.6.1.zip
 
 EXPOSE 80/tcp 443/tcp
 ENTRYPOINT [ "docker-entrypoint.sh" ]
